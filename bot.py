@@ -24,7 +24,7 @@ from cogs import takumi_ping
 from cogs import takumi_suiso
 from cogs import takumi_other
 from cogs import m10s_vote_system
-bot = commands.Bot(command_prefix="g.", status=discord.Status.invisible,
+bot = commands.Bot(command_prefix="w.", status=discord.Status.invisible,
                    allowed_mentions=discord.AllowedMentions(everyone=False),
                    intents=discord.Intents.all())
 bot.color = 0xe8da1c
@@ -33,7 +33,7 @@ bot.GAPI_TOKEN = cf.google_api_key
 
 bot.StartTime = datetime.datetime.now()
 
-bot.version = "1.5.0"
+bot.version = "1.0.0"
 
 
 sqlite3.register_converter('json', json.loads)
@@ -72,7 +72,7 @@ async def on_ready():
     m10s_vote_system.setup(bot)
     logging.basicConfig(level=logging.WARNING)
     print(f"logined as {bot.user.name}(id:{bot.user.id})")
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"g.help | Ver{bot.version}"))
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"w.help | Ver{bot.version}"))
 
 
 @bot.event
@@ -109,13 +109,13 @@ async def debug_on(ctx):
 @bot.command(name="debug_off")
 async def debug_off(ctx):
     if ctx.author.id in bot.developers:
-       await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"g.help | Ver{bot.version}"))
+       await bot.change_presence(status=discord.Status.online, activity=discord.Game(name=f"w.help | Ver{bot.version}"))
        await ctx.send("デバックモードを無効にしました。")
 
 # @bot.command(name="check")
 # async def user_check(ctx):
 #    if ctx.author.id in bot.developers:
-#        await ctx.send("ようこそ！ゴラクバ！クラフターズ(ゴラクラ)へ！\n ユーザー認証の際に問題が発生したためお知らせしています。\n 安全のため「あなたがこのサーバーに入ってきた理由」の確認を行っています。\n お手数をおかけしますが、ご協力をお願いします。\n (このメッセージは運営チームが定めるリストの中にあなたのアカウントがある際に自動送信されます。)")
+#        await ctx.send("ようこそ！みんなのわいがやパークへ！\n ユーザー認証の際に問題が発生したためお知らせしています。\n 安全のため「あなたがこのサーバーに入ってきた理由」の確認を行っています。\n お手数をおかけしますが、ご協力をお願いします。\n (このメッセージは運営チームが定めるリストの中にあなたのアカウントがある際に自動送信されます。)")
 
 bot.remove_command("help")
 
@@ -168,11 +168,13 @@ async def on_command_error(ctx,error):
 
 @bot.event
 async def on_command(ctx):
-    e = discord.Embed(title="コマンド実行ログ",description=f"実行分:`{ctx.message.clean_content}`",color=bot.color)
-    e.set_author(name=f"{ctx.author}({ctx.author.id})",icon_url=ctx.author.avatar_url_as(static_format="png"))
-    e.timestamp = ctx.message.created_at
     ch = bot.get_channel(772111846374506516)
-
+    e = discord.Embed(title=f"{ctx.command.name}の実行",
+                      description=f"実行文:`{ctx.message.clean_content}`", color=bot.color)
+    e.set_author(name=f"実行者:{str(ctx.author)}({ctx.author.id})",
+                 icon_url=ctx.author.avatar_url_as(static_format="png"))
+    e.add_field(name="実行チャンネル", value=ctx.channel.name)
+    e.timestamp = ctx.message.created_at
     await ch.send(embed=e)
 
 

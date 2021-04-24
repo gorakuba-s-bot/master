@@ -13,7 +13,7 @@ class m10s_announce(commands.Cog):
         role = ctx.guild.get_role(769835497706881044)
         if role in ctx.author.roles:
             mrole = ctx.guild.get_role(698022495051055114)
-            ch = self.bot.get_channel(592201270014640138)
+            ch = self.bot.get_channel(835415090660245504)
             e = discord.Embed(title=title, description=text, color=ctx.author.color)
             e.timestamp = ctx.message.created_at
             e.set_author(name=f"{ctx.guild}からのお知らせ", icon_url=ctx.guild.icon_url_as(static_format="png"))
