@@ -27,12 +27,10 @@ class m10s_userinfo(commands.Cog):
             badges+="✅"
         if 599804873118187520 in role_ids: #Bot
             badges+="⚙"
-        if 601052213435039745 in role_ids: #運営@サポート
+        if 601052213435039745 in role_ids: #Cast
             badges+="🛠"
         if 611730459402960907 in role_ids: #サーバーブースター
             badges+="✨"
-        if 676051183923757108 in role_ids: #SP-Vip
-            badges+="🎗"
 
         e=discord.Embed(color=self.bot.color)
         e.set_author(name=badges+str(target),icon_url=target.avatar_url_as(static_format="png"))

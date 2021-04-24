@@ -217,12 +217,12 @@ class takumi_music(commands.Cog):
             else:
                 await ctx.send("now,the video can't play the bot")
 
-    async def mplay(self, ctx, vl=0.5, lp=False):
+    async def mplay(self, ctx, vl=0.2, lp=False):
         v = None
         if not self.bot.lp.get(str(ctx.guild.id), None):
             self.bot.lp[str(ctx.guild.id)] = False
         if not self.bot.mp.get(str(ctx.guild.id), None):
-            ebd = discord.Embed(title="gorakuba's bot-ミュージック操作パネル", color=self.bot.color)
+            ebd = discord.Embed(title="わいパー-ミュージック操作パネル", color=self.bot.color)
             ebd.add_field(name="再生中の曲:", value="未読み込み")
             ebd.add_field(name="次の曲:", value="未読み込み")
             ebd.add_field(name="ループ:", value="未読み込み")
@@ -347,11 +347,11 @@ class takumi_music(commands.Cog):
         await self.panel_update(ctx)
 
     async def panel_update(self, ctx):
-        ebd = discord.Embed(title="gorakuba's bot-ミュージック操作パネル",
+        ebd = discord.Embed(title="わいパー-ミュージック操作パネル",
                             description=f"キューの曲数:{len(self.bot.qu[str(ctx.guild.id)])}曲\nリアクションで操作でき、そのたびに操作パネルが更新されます。\n▶:(一時停止中)再生の再開,⏸:(再生中)一時停止,⏹:ストップ,⏭:スキップ,🔁:ループ切替,🔼:ボリュームを上げる,🔽:ボリュームを下げる,⬇:パネルを下に持ってくる", color=self.bot.color)
         if ctx.voice_client.is_paused():
             ebd.add_field(name="現在一時停止中",
-                          value="再開には`g.play`か▶リアクション", inline=False)
+                          value="再開には`w.play`か▶リアクション", inline=False)
         ebd.add_field(
             name="再生中の曲:", value=f"[{self.bot.qu[str(ctx.guild.id)][0]['video_title']}]({self.bot.qu[str(ctx.guild.id)][0]['video_url']})(from {self.bot.qu[str(ctx.guild.id)][0]['video_source']})")
         if len(self.bot.qu[str(ctx.guild.id)]) > 1:
