@@ -1,4 +1,4 @@
-gorakuba's botのプログラム
+わいパーのプログラム
 
 ほぼ全てPythonで作成しdiscord.pyを使用
 
