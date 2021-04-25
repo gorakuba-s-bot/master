@@ -15,7 +15,7 @@ class m10s_userinfo(commands.Cog):
 
     @commands.command(name="userinfo",aliases=["ui","user"])
     async def _info_of_user(self, ctx, target:Union[commands.MemberConverter,None]):
-        admin_role = ctx.guild.get_role(593180852893253662)
+        admin_role = ctx.guild.get_role(679645734240649246)
         if target is None:
             target = ctx.author
 
