@@ -7,5 +7,7 @@
 お問い合わせ
 
 https://twitter.com/waigayapark
+
 または
+
 waigayapark@gmail.com
