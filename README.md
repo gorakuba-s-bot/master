@@ -6,4 +6,6 @@
 
 お問い合わせ
 
-https://gorakuba.net/contact-us/
+https://twitter.com/waigayapark
+または
+waigayapark@gmail.com
